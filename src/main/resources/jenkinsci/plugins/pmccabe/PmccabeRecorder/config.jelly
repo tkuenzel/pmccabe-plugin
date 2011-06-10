@@ -1,0 +1,10 @@
+<!--
+-->
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define"
+	xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:u="/util">
+
+	<f:entry title="Main pmccabe report file path">
+		<f:textbox name="outputFilePath" value="${instance.outputFilePath}"/>
+	</f:entry>
+
+</j:jelly>
