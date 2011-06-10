@@ -61,6 +61,8 @@ public class PmccabeRecorder extends Recorder implements Serializable {
 			return false;
 		}
 
+		build.addAction(new PmccabeAction(build, 100));
+		
 		listener.getLogger().println("End Processing pmccabe results");
 		return true;
 	}

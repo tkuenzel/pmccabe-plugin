@@ -1,0 +1,11 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:l="/lib/layout" >
+	<j:set var="build" value="${it.build}" />
+	<l:layout title="${build} #${build.number} ..." norefresh="true">
+		<st:include it="${it.build}" page="sidepanel.jelly" />
+		<l:main-panel>
+
+			<h1>PMcCabe report</h1>
+			This value is <b>${it.value}</b>.
+		</l:main-panel>
+	</l:layout>
+</j:jelly>
