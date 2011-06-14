@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.io.Serializable;
 
+import jenkinsci.plugins.pmccabe.utils.PmccabeFileParser;
+import jenkinsci.plugins.pmccabe.utils.PmccabeReport;
+
 
 public class PmccabeRecorder extends Recorder implements Serializable {
 	private final String outputFilePath;
@@ -61,7 +64,17 @@ public class PmccabeRecorder extends Recorder implements Serializable {
 			return false;
 		}
 
-		build.addAction(new PmccabeAction(build, 100));
+		PmccabeFileParser parser = new PmccabeFileParser(metricFile);
+		
+		try {
+			PmccabeReport report = parser.parse();
+	        build.addAction(new PmccabeAction(build, report));
+
+		} catch (IOException ioe) {
+			ioe.printStackTrace(logger);
+			build.setResult(Result.FAILURE);
+			return false;
+		}
 		
 		listener.getLogger().println("End Processing pmccabe results");
 		return true;

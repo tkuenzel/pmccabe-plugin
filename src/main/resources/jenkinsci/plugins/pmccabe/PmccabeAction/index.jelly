@@ -5,7 +5,7 @@
 		<l:main-panel>
 
 			<h1>PMcCabe report</h1>
-			This value is <b>${it.value}</b>.
+			${it.loc}
 		</l:main-panel>
 	</l:layout>
 </j:jelly>

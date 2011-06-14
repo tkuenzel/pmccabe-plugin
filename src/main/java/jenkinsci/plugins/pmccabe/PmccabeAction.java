@@ -3,20 +3,21 @@ package jenkinsci.plugins.pmccabe;
 import hudson.model.AbstractBuild;
 import hudson.model.Action;
 import org.kohsuke.stapler.StaplerProxy;
-
 import java.io.Serializable;
+
+import jenkinsci.plugins.pmccabe.utils.PmccabeReport;
 
 
 public class PmccabeAction implements Action {
 
     public static final String URL_NAME = "PmccabeReport";
 
-    private final AbstractBuild build;
-    private int value;
+    private AbstractBuild<?, ?> build;
+    private PmccabeReport report;
 
-    public PmccabeAction(AbstractBuild build, int value) {
+    public PmccabeAction(AbstractBuild<?, ?> build, PmccabeReport report) {
         this.build = build;
-        this.value = value;
+        this.report = report;
     }
 
     public String getIconFileName() {
@@ -41,11 +42,38 @@ public class PmccabeAction implements Action {
     	return "Here getDetails()";
     }
 
-    public AbstractBuild getBuild() {
+    public AbstractBuild<?, ?> getBuild() {
         return build;
     }
     
-    public int getValue() {
-    	return value;
+    public PmccabeReport getReport() {
+        return report;
     }
+
+    public int getLoc() {
+    	return report.getLinesOfCode();
+    }
+    
+	public Object getTarget() {
+		return report;
+	}
+	
+    private PmccabeReport getPreviousResult() {
+        PmccabeAction previousAction = this.getPreviousAction();
+        PmccabeReport previousReport = null;
+        if (previousAction != null) {
+            previousReport = previousAction.getReport();
+        }
+
+        return previousReport;
+    }
+
+    private PmccabeAction getPreviousAction() {
+        AbstractBuild<?, ?> previousBuild = this.build.getPreviousBuild();
+        if (previousBuild != null) {
+            return previousBuild.getAction(PmccabeAction.class);
+        }
+        return null;
+    }
+
 }

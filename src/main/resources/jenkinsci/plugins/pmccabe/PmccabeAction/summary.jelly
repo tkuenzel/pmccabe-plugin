@@ -9,8 +9,7 @@
     <t:summary icon="/plugin/pmccabe/icons/pmccabe-48.png">
 		${it.summary}
 		<ul>
-		${it.details}
-		<p><b>${it.value}</b></p>
+		Total line of code in functions: <b>${it.loc}</b>
 		</ul>
 	</t:summary>
 </j:jelly>
