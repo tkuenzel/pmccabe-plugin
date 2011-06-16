@@ -1,5 +1,3 @@
-<!--
--->
 <j:jelly xmlns:j="jelly:core"
 	xmlns:d="jelly:define"
     xmlns:l="/lib/layout"
@@ -7,9 +5,8 @@
 	xmlns:f="/lib/form"
     xmlns:i="jelly:fmt">
     <t:summary icon="/plugin/pmccabe/icons/pmccabe-48.png">
-		${it.summary}
-		<ul>
-		Total line of code in functions: <b>${it.loc}</b>
-		</ul>
+		<j:if test="${!(it.report == null)}">
+			Total lines of code: ${it.report.linesOfCode}.
+		</j:if>
 	</t:summary>
 </j:jelly>

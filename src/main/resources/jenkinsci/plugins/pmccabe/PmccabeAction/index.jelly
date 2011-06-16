@@ -5,7 +5,38 @@
 		<l:main-panel>
 
 			<h1>PMcCabe report</h1>
-			${it.loc}
+			<j:choose>
+				<j:when test="${it.report == null}">
+					No report available.
+				</j:when>
+				<j:otherwise>
+    				<!-- <st:include page="projectSummary.jelly" /> -->
+            		Total lines of code: ${it.report.linesOfCode}.
+			
+		  			<table class="pane sortable" id="files">
+    				<tr>
+      					<td class="pane-header">Complexity</td>
+      					<td class="pane-header">Statements</td>
+      					<td class="pane-header">LOC</td>
+      					<td class="pane-header">Filename</td>
+      					<td class="pane-header">Function</td>
+    				</tr>
+    				<tbody>
+
+        				<j:forEach var="elt" items="${it.report.functionSummaryList}">    
+            				<tr>
+              					<td class="pane">${elt.modifiedMcCabeCyclomaticComplexity}</td>
+              					<td class="pane">${elt.statementsInFunction}</td>
+              					<td class="pane">${elt.linesInFunction}</td>
+              					<td class="pane">${elt.filename}</td>
+              					<td class="pane">${elt.name}</td>
+              				</tr>
+        				</j:forEach>
+    				</tbody>    
+  					</table>
+  					</j:otherwise>
+			</j:choose>
 		</l:main-panel>
 	</l:layout>
 </j:jelly>
+

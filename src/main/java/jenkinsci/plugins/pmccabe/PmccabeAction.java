@@ -50,10 +50,6 @@ public class PmccabeAction implements Action {
         return report;
     }
 
-    public int getLoc() {
-    	return report.getLinesOfCode();
-    }
-    
 	public Object getTarget() {
 		return report;
 	}
