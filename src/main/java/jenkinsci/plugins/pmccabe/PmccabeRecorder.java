@@ -21,6 +21,7 @@ import jenkinsci.plugins.pmccabe.utils.PmccabeReport;
 
 public class PmccabeRecorder extends Recorder implements Serializable {
 	private final String outputFilePath;
+	private boolean isModifiedComplexity;
 	private static final long serialVersionUID = 1L;
 
     @DataBoundConstructor
@@ -68,7 +69,7 @@ public class PmccabeRecorder extends Recorder implements Serializable {
 		
 		try {
 			PmccabeReport report = parser.parse();
-	        build.addAction(new PmccabeAction(build, report));
+	        build.addAction(new PmccabeAction(build, report, isModifiedComplexity));
 
 		} catch (IOException ioe) {
 			ioe.printStackTrace(logger);

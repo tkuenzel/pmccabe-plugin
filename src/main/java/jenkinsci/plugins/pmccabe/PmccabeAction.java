@@ -14,10 +14,16 @@ public class PmccabeAction implements Action {
 
     private AbstractBuild<?, ?> build;
     private PmccabeReport report;
+    private boolean isModifiedComplexity;
 
-    public PmccabeAction(AbstractBuild<?, ?> build, PmccabeReport report) {
+    public boolean isModifiedComplexity() {
+		return isModifiedComplexity;
+	}
+
+	public PmccabeAction(AbstractBuild<?, ?> build, PmccabeReport report, boolean isModifiedComplexity) {
         this.build = build;
         this.report = report;
+        this.isModifiedComplexity = isModifiedComplexity;
     }
 
     public String getIconFileName() {

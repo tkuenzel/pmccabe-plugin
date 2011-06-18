@@ -6,5 +6,8 @@
 	<f:entry title="Main pmccabe report file path">
 		<f:textbox name="outputFilePath" value="${instance.outputFilePath}"/>
 	</f:entry>
+	<f:entry title="Use modified McCabe Cyclomatic Complexity">
+		<f:checkbox checked="${instance.isModifiedComplexity}"/>
+	</f:entry>
 
 </j:jelly>

@@ -25,7 +25,14 @@
 
         				<j:forEach var="elt" items="${it.report.functionSummaryList}">    
             				<tr>
-              					<td class="pane">${elt.modifiedMcCabeCyclomaticComplexity}</td>
+            					<j:choose>
+            						<j:when test="${not it.isModifiedComplexity()}">
+            							<td class="pane">${elt.traditionalMcCabeCyclomaticComplexity}</td>
+            						</j:when>
+            						<j:otherwise>
+              							<td class="pane">${elt.modifiedMcCabeCyclomaticComplexity}</td>
+              						</j:otherwise>
+              					</j:choose>
               					<td class="pane">${elt.statementsInFunction}</td>
               					<td class="pane">${elt.linesInFunction}</td>
               					<td class="pane">${elt.filename}</td>
