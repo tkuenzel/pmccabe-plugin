@@ -21,18 +21,23 @@ import jenkinsci.plugins.pmccabe.utils.PmccabeReport;
 
 public class PmccabeRecorder extends Recorder implements Serializable {
 	private final String outputFilePath;
-	private boolean isModifiedComplexity;
+	private boolean modifiedComplexity;
 	private static final long serialVersionUID = 1L;
 
     @DataBoundConstructor
-    public PmccabeRecorder(String outputFilePath) {
+    public PmccabeRecorder(String outputFilePath, boolean modifiedComplexity) {
         this.outputFilePath = outputFilePath;
+        this.modifiedComplexity = modifiedComplexity;
     }
 
 
 	public BuildStepMonitor getRequiredMonitorService() {
 		// TODO Auto-generated method stub
 		return BuildStepMonitor.NONE;
+	}
+
+	public boolean isModifiedComplexity() {
+		return modifiedComplexity;
 	}
 
 	@Override
@@ -69,7 +74,7 @@ public class PmccabeRecorder extends Recorder implements Serializable {
 		
 		try {
 			PmccabeReport report = parser.parse();
-	        build.addAction(new PmccabeAction(build, report, isModifiedComplexity));
+	        build.addAction(new PmccabeAction(build, report));
 
 		} catch (IOException ioe) {
 			ioe.printStackTrace(logger);

@@ -5,8 +5,12 @@
 	xmlns:f="/lib/form"
     xmlns:i="jelly:fmt">
     <t:summary icon="/plugin/pmccabe/icons/pmccabe-48.png">
+    	<a href="${it.urlName}">PMCCabe Results</a>
+    	<br></br>
 		<j:if test="${!(it.report == null)}">
-			Total lines of code: ${it.report.linesOfCode}.
+			<ul>
+				<li>Total lines of code: ${it.report.linesOfCode}.</li>
+			</ul>
 		</j:if>
 	</t:summary>
 </j:jelly>

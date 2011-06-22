@@ -1,8 +1,11 @@
 package jenkinsci.plugins.pmccabe;
 
+import hudson.EnvVars;
 import hudson.model.AbstractBuild;
 import hudson.model.Action;
 import org.kohsuke.stapler.StaplerProxy;
+
+import java.io.IOException;
 import java.io.Serializable;
 
 import jenkinsci.plugins.pmccabe.utils.PmccabeReport;
@@ -14,16 +17,10 @@ public class PmccabeAction implements Action {
 
     private AbstractBuild<?, ?> build;
     private PmccabeReport report;
-    private boolean isModifiedComplexity;
 
-    public boolean isModifiedComplexity() {
-		return isModifiedComplexity;
-	}
-
-	public PmccabeAction(AbstractBuild<?, ?> build, PmccabeReport report, boolean isModifiedComplexity) {
+	public PmccabeAction(AbstractBuild<?, ?> build, PmccabeReport report) {
         this.build = build;
         this.report = report;
-        this.isModifiedComplexity = isModifiedComplexity;
     }
 
     public String getIconFileName() {
@@ -58,6 +55,10 @@ public class PmccabeAction implements Action {
 
 	public Object getTarget() {
 		return report;
+	}
+	
+	public boolean isLastBuild() {
+		return null == build.getNextBuild();
 	}
 	
     private PmccabeReport getPreviousResult() {
