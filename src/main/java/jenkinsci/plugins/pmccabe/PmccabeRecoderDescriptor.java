@@ -5,6 +5,7 @@ import hudson.Extension;
 import hudson.model.AbstractProject;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.Publisher;
+import jenkinsci.plugins.pmccabe.util.Messages;
 
 @Extension
 public class PmccabeRecoderDescriptor extends BuildStepDescriptor<Publisher> {
@@ -21,7 +22,7 @@ public class PmccabeRecoderDescriptor extends BuildStepDescriptor<Publisher> {
 
 	@Override
 	public String getDisplayName() {
-		return "Publish pmccabe report";
+		return Messages.PmccabePublisher_Name();
 	}
 
 }

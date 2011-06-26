@@ -3,7 +3,7 @@ package jenkinsci.plugins.pmccabe;
 import hudson.model.Action;
 import hudson.model.AbstractBuild;
 import jenkinsci.plugins.pmccabe.utils.PmccabeReport;
-
+import jenkinsci.plugins.pmccabe.util.Messages;
 
 public class PmccabeAction implements Action {
 
@@ -22,7 +22,7 @@ public class PmccabeAction implements Action {
     }
 
     public String getDisplayName() {
-        return "PMcCabe Results";
+        return Messages.PmccabeAction_PmccabeReport();
     }
 
     public String getUrlName() {

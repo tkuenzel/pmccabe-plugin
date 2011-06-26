@@ -4,14 +4,14 @@
 		<st:include it="${it.build}" page="sidepanel.jelly" />
 		<l:main-panel>
 
-			<h1>PMcCabe report</h1>
+			<h1>${%PmccabeReport}</h1>
 			<j:choose>
 				<j:when test="${it.report == null}">
 					No report available.
 				</j:when>
 				<j:otherwise>
     				<!-- <st:include page="projectSummary.jelly" /> -->
-            		<h2>Project Summary</h2>
+            		<h2>${%ProjectSummary}</h2>
             		
 		  			<table class="pane" id="files">
     				<tr>
@@ -20,49 +20,49 @@
     				</tr>
     				<tbody>
     					<tr>
-    						<td class="pane">Lines of code</td>
+    						<td class="pane">${%LinesOfCode}</td>
     						<td class="pane">${it.report.linesOfCode}</td>
     					</tr>
     					<tr>
-    						<td class="pane">Traditional McCabe Cyclomatic Complexity</td>
+    						<td class="pane">${%TraditionalComplexity}</td>
     						<td class="pane">${it.report.traditionalComplexity}</td>
     					</tr>
     					<tr>
-    						<td class="pane">Traditional McCabe Cyclomatic Complexity (Average)</td>
+    						<td class="pane">${%TraditionalComplexityAverage}</td>
     						<td class="pane">${it.report.traditionalComplexityAverage}</td>
     					</tr>
     					<tr>
-    						<td class="pane">Modified McCabe Cyclomatic Complexity</td>
+    						<td class="pane">${%ModifiedComplexity}</td>
     						<td class="pane">${it.report.modifiedComplexity}</td>
     					</tr>
     					<tr>
-    						<td class="pane">Modified McCabe Cyclomatic Complexity (Average)</td>
+    						<td class="pane">${%ModifiedComplexityAverage}</td>
     						<td class="pane">${it.report.modifiedComplexityAverage}</td>
     					</tr>
     					<tr>
-    						<td class="pane">Number of Statements</td>
+    						<td class="pane">${%NumberOfStatements}</td>
     						<td class="pane">${it.report.numberOfStatements}</td>
     					</tr>
     					<tr>
-    						<td class="pane">Number of Functions</td>
+    						<td class="pane">${%NumberOfFunctions}</td>
     						<td class="pane">${it.report.numberOfFunctions}</td>
     					</tr>
     					<tr>
-    						<td class="pane">Number of Files</td>
+    						<td class="pane">${%NumberOfFiles}</td>
     						<td class="pane">${it.report.numberOfFiles}</td>
     					</tr>
     				</tbody>
             		</table>
 					
-					<h2>McCabe Cyclomatic Complexity Summary</h2>
+					<h2>${%ComplexitySummary}</h2>
 		  			<table class="pane sortable" id="files">
     				<tr>
       					<td class="pane-header" style="width:1em">m. McCabe</td>
       					<td class="pane-header" style="width:1em">t. McCabe</td>
-      					<td class="pane-header" style="width:2em">Statements</td>
+      					<td class="pane-header" style="width:2em">${%Statements}</td>
       					<td class="pane-header" style="width:2em">LOC</td>
-      					<td class="pane-header">Filename</td>
-      					<td class="pane-header">Function</td>
+      					<td class="pane-header">${%Filename}</td>
+      					<td class="pane-header">${%Function}</td>
     				</tr>
     				<tbody>
 
