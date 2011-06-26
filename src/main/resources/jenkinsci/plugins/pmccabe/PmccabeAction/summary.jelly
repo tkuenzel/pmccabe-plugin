@@ -9,7 +9,7 @@
     	<br></br>
 		<j:if test="${!(it.report == null)}">
 			<ul>
-				<li>Total lines of code: ${it.report.linesOfCode}.</li>
+				${it.details}
 			</ul>
 		</j:if>
 	</t:summary>

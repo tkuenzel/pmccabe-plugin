@@ -36,13 +36,8 @@ public class PmccabeAction implements Action {
     }
 
     @SuppressWarnings("unused")
-    public String getSummary() {
-    	return "Here getSummary()";
-    }
-
-    @SuppressWarnings("unused")
     public String getDetails() {
-    	return "Here getDetails()";
+    	return PmcabeSummary.createReportSummaryDetails(report, getPreviousReport());
     }
 
     public AbstractBuild<?, ?> getBuild() {
@@ -61,7 +56,7 @@ public class PmccabeAction implements Action {
 		return null == build.getNextBuild();
 	}
 	
-    private PmccabeReport getPreviousResult() {
+    private PmccabeReport getPreviousReport() {
         PmccabeAction previousAction = this.getPreviousAction();
         PmccabeReport previousReport = null;
         if (previousAction != null) {

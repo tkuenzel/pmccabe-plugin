@@ -84,20 +84,30 @@ public class PmccabeReport implements Serializable {
     /**
      * @return The average of Modified McCabe Cyclomatic Complexity per function.
      */
-    public int getModifiedComplexityAverage() {
+    public float getModifiedComplexityAverage() {
     	if (functionsSummaryList.size() == 0)
     		return 0;
     	else
-    		return mmcc / functionsSummaryList.size();
+    		return (float)mmcc / (float)functionsSummaryList.size();
     }
 
     /**
      * @return The average of Traditional McCabe Cyclomatic Complexity per function.
      */
-    public int getTraditionalComplexityAverage() {
+    public float getTraditionalComplexityAverage() {
     	if (functionsSummaryList.size() == 0)
     		return 0;
     	else
-    		return tmcc / functionsSummaryList.size();
+    		return (float)tmcc / (float)functionsSummaryList.size();
+    }
+    
+    /**
+     * @return The average of lines of code per function.
+     */
+    public float getLocAverage() {
+    	if (functionsSummaryList.size() == 0)
+    		return 0;
+    	else
+    		return (float)loc / (float)functionsSummaryList.size();
     }
 }
