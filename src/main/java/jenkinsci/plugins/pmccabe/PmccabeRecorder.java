@@ -2,14 +2,11 @@ package jenkinsci.plugins.pmccabe;
 
 import hudson.FilePath;
 import hudson.Launcher;
-import hudson.model.AbstractBuild;
 import hudson.model.BuildListener;
-
 import hudson.model.Result;
+import hudson.model.AbstractBuild;
 import hudson.tasks.BuildStepMonitor;
 import hudson.tasks.Recorder;
-
-import org.kohsuke.stapler.DataBoundConstructor;
 
 import java.io.IOException;
 import java.io.PrintStream;
@@ -17,6 +14,8 @@ import java.io.Serializable;
 
 import jenkinsci.plugins.pmccabe.utils.PmccabeFileParser;
 import jenkinsci.plugins.pmccabe.utils.PmccabeReport;
+
+import org.kohsuke.stapler.DataBoundConstructor;
 
 
 public class PmccabeRecorder extends Recorder implements Serializable {
@@ -45,7 +44,7 @@ public class PmccabeRecorder extends Recorder implements Serializable {
 
 		listener.getLogger().println("Parsing pmccabe results");
 
-		FilePath workspace = build.getWorkspace();
+//		FilePath workspace = build.getWorkspace();
 		PrintStream logger = listener.getLogger();
 
 		FilePath metricFile = new FilePath(build.getWorkspace(), outputFilePath);
@@ -86,7 +85,6 @@ public class PmccabeRecorder extends Recorder implements Serializable {
 		return true;
 	}
 	
-    @SuppressWarnings("unused")
     public String getOutputFilePath() {
         return outputFilePath;
     }

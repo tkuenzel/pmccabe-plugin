@@ -5,11 +5,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.Set;
-
-import org.apache.commons.collections.iterators.ArrayListIterator;
-
-import com.google.common.primitives.UnsignedBytes;
 
 
 public class PmccabeReport implements Serializable {

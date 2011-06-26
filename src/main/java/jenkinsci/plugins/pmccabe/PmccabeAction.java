@@ -1,13 +1,7 @@
 package jenkinsci.plugins.pmccabe;
 
-import hudson.EnvVars;
-import hudson.model.AbstractBuild;
 import hudson.model.Action;
-import org.kohsuke.stapler.StaplerProxy;
-
-import java.io.IOException;
-import java.io.Serializable;
-
+import hudson.model.AbstractBuild;
 import jenkinsci.plugins.pmccabe.utils.PmccabeReport;
 
 
