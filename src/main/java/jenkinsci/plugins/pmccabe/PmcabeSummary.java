@@ -19,14 +19,6 @@ public class PmcabeSummary {
         }
 
         builder.append("<li>");
-        builder.append(Messages.PmccabeAction_NumberOfFiles() + " :");
-        builder.append(report.getNumberOfFiles());
-        if (previous != null) {
-            printDifference(report.getNumberOfFiles(), previous.getNumberOfFiles(), builder);
-        }
-        builder.append("</li>");
-
-        builder.append("<li>");
         builder.append(Messages.PmccabeAction_LinesOfCode() + " :");
         builder.append(report.getLinesOfCode());
         if (previous != null) {
@@ -49,6 +41,15 @@ public class PmcabeSummary {
             printDifference(report.getModifiedComplexity(), previous.getModifiedComplexity(), builder);
         }
         builder.append("</li>");
+
+        builder.append("<li>");
+        builder.append(Messages.PmccabeAction_NumberOfFiles() + " :");
+        builder.append(report.getNumberOfFiles());
+        if (previous != null) {
+            printDifference(report.getNumberOfFiles(), previous.getNumberOfFiles(), builder);
+        }
+        builder.append("</li>");
+
         builder.append("<li>");
         builder.append(Messages.PmccabeAction_NumberOfFunctions() + " :");
         builder.append(report.getNumberOfFunctions());

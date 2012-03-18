@@ -28,28 +28,28 @@
     						<td class="pane">${it.report.traditionalComplexity}</td>
     					</tr>
     					<tr>
-    						<td class="pane">${%TraditionalComplexityAverage}</td>
-    						<td class="pane">${it.report.traditionalComplexityAverage}</td>
-    					</tr>
-    					<tr>
     						<td class="pane">${%ModifiedComplexity}</td>
     						<td class="pane">${it.report.modifiedComplexity}</td>
     					</tr>
     					<tr>
-    						<td class="pane">${%ModifiedComplexityAverage}</td>
-    						<td class="pane">${it.report.modifiedComplexityAverage}</td>
-    					</tr>
-    					<tr>
-    						<td class="pane">${%NumberOfStatements}</td>
-    						<td class="pane">${it.report.numberOfStatements}</td>
+    						<td class="pane">${%NumberOfFiles}</td>
+    						<td class="pane">${it.report.numberOfFiles}</td>
     					</tr>
     					<tr>
     						<td class="pane">${%NumberOfFunctions}</td>
     						<td class="pane">${it.report.numberOfFunctions}</td>
     					</tr>
     					<tr>
-    						<td class="pane">${%NumberOfFiles}</td>
-    						<td class="pane">${it.report.numberOfFiles}</td>
+    						<td class="pane">${%NumberOfStatements}</td>
+    						<td class="pane">${it.report.numberOfStatements}</td>
+    					</tr>
+    					<tr>
+    						<td class="pane">${%TraditionalComplexityAverage}</td>
+    						<td class="pane">${it.report.traditionalComplexityAverage}</td>
+    					</tr>
+    					<tr>
+    						<td class="pane">${%ModifiedComplexityAverage}</td>
+    						<td class="pane">${it.report.modifiedComplexityAverage}</td>
     					</tr>
     				</tbody>
             		</table>
@@ -57,8 +57,8 @@
 					<h2>${%ComplexitySummary}</h2>
 		  			<table class="pane sortable" id="files">
     				<tr>
-      					<td class="pane-header" style="width:1em">m. McCabe</td>
       					<td class="pane-header" style="width:1em">t. McCabe</td>
+      					<td class="pane-header" style="width:1em">m. McCabe</td>
       					<td class="pane-header" style="width:2em">${%Statements}</td>
       					<td class="pane-header" style="width:2em">LOC</td>
       					<td class="pane-header">${%Filename}</td>
@@ -68,8 +68,8 @@
 
         				<j:forEach var="elt" items="${it.report.functionSummaryList}">    
             				<tr>
-       							<td class="pane">${elt.modifiedMcCabeCyclomaticComplexity}</td>
        							<td class="pane">${elt.traditionalMcCabeCyclomaticComplexity}</td>
+       							<td class="pane">${elt.modifiedMcCabeCyclomaticComplexity}</td>
               					<td class="pane">${elt.statementsInFunction}</td>
               					<td class="pane">${elt.linesInFunction}</td>
             					<j:choose>

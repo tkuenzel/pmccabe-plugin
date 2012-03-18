@@ -2,6 +2,8 @@ package jenkinsci.plugins.pmccabe;
 
 import hudson.FilePath;
 import hudson.Launcher;
+import hudson.model.AbstractProject;
+import hudson.model.Action;
 import hudson.model.BuildListener;
 import hudson.model.Result;
 import hudson.model.AbstractBuild;
@@ -85,6 +87,11 @@ public class PmccabeRecorder extends Recorder implements Serializable {
 		return true;
 	}
 	
+    @Override
+    public Action getProjectAction(AbstractProject<?, ?> project) {
+        return new PmccabeProjectAction(project);
+    }
+
     public String getOutputFilePath() {
         return outputFilePath;
     }

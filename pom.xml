@@ -8,7 +8,7 @@
 
   <groupId>jenkinsci.plugins.pmccabe</groupId>
   <artifactId>pmccabe</artifactId>
-  <version>0.1</version>
+  <version>0.2</version>
   <packaging>hpi</packaging>
 
   <!-- get every artifact through maven.glassfish.org, which proxies all the artifacts that we need -->

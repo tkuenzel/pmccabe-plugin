@@ -1,11 +1,15 @@
 package jenkinsci.plugins.pmccabe;
 
+import java.io.Serializable;
+
+import org.kohsuke.stapler.StaplerProxy;
+
 import hudson.model.Action;
 import hudson.model.AbstractBuild;
 import jenkinsci.plugins.pmccabe.utils.PmccabeReport;
 import jenkinsci.plugins.pmccabe.util.Messages;
 
-public class PmccabeAction implements Action {
+public class PmccabeAction implements Action, Serializable {
 
     public static final String URL_NAME = "PmccabeReport";
 
@@ -50,7 +54,7 @@ public class PmccabeAction implements Action {
 		return null == build.getNextBuild();
 	}
 	
-    private PmccabeReport getPreviousReport() {
+    public PmccabeReport getPreviousReport() {
         PmccabeAction previousAction = this.getPreviousAction();
         PmccabeReport previousReport = null;
         if (previousAction != null) {
@@ -60,7 +64,7 @@ public class PmccabeAction implements Action {
         return previousReport;
     }
 
-    private PmccabeAction getPreviousAction() {
+    public PmccabeAction getPreviousAction() {
         AbstractBuild<?, ?> previousBuild = this.build.getPreviousBuild();
         if (previousBuild != null) {
             return previousBuild.getAction(PmccabeAction.class);
