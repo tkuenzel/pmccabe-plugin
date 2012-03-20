@@ -46,7 +46,7 @@ public class PmccabeRecorder extends Recorder implements Serializable {
 
 		listener.getLogger().println("Parsing pmccabe results");
 
-//		FilePath workspace = build.getWorkspace();
+		FilePath workspace = build.getWorkspace();
 		PrintStream logger = listener.getLogger();
 
 		FilePath metricFile = new FilePath(build.getWorkspace(), outputFilePath);
@@ -74,10 +74,14 @@ public class PmccabeRecorder extends Recorder implements Serializable {
 		PmccabeFileParser parser = new PmccabeFileParser(metricFile);
 		
 		try {
-			PmccabeReport report = parser.parse();
+			PmccabeReport report = workspace.act(parser);
 	        build.addAction(new PmccabeAction(build, report));
 
 		} catch (IOException ioe) {
+			ioe.printStackTrace(logger);
+			build.setResult(Result.FAILURE);
+			return false;
+		} catch (InterruptedException ioe) {
 			ioe.printStackTrace(logger);
 			build.setResult(Result.FAILURE);
 			return false;

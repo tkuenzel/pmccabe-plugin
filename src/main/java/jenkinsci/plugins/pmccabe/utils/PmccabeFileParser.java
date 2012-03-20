@@ -1,6 +1,7 @@
 package jenkinsci.plugins.pmccabe.utils;
 
 import hudson.FilePath;
+import hudson.remoting.VirtualChannel;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,7 +13,7 @@ import java.util.logging.Logger;
 
 
 
-public class PmccabeFileParser {
+public class PmccabeFileParser implements FilePath.FileCallable<PmccabeReport> {
     private static final Logger LOGGER = Logger.getLogger(PmccabeFileParser.class.getName());
 
     private FilePath resultFilePath;
@@ -21,7 +22,7 @@ public class PmccabeFileParser {
         this.resultFilePath = resultFilePath;
     }
 
-    public PmccabeReport parse() throws IOException {
+    public PmccabeReport invoke(java.io.File dir, VirtualChannel channel) throws IOException {
 
     	PmccabeReport report = new PmccabeReport();
     	
