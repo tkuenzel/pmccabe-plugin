@@ -15,8 +15,8 @@
             		
 		  			<table class="pane" id="files">
     				<tr>
-    					<td class="pane-header">Metric</td>
-    					<td class="pane-header">Overall</td>
+    					<td class="pane-header">${%Metric}</td>
+    					<td class="pane-header">${%Overall}</td>
     				</tr>
     				<tbody>
     					<tr>
