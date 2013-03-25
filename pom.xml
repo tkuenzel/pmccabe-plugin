@@ -8,7 +8,7 @@
 
   <groupId>jenkinsci.plugins.pmccabe</groupId>
   <artifactId>pmccabe</artifactId>
-  <version>0.2</version>
+  <version>0.3</version>
   <packaging>hpi</packaging>
 
   <!-- get every artifact through maven.glassfish.org, which proxies all the artifacts that we need -->
@@ -25,4 +25,10 @@
       <url>http://maven.glassfish.org/content/groups/public/</url>
     </pluginRepository>
   </pluginRepositories>
+  <name>Jenkins PMcCabe Plug-in</name>
+  <scm>
+  	<connection>scm:git:git@github.com/pmccabe-plugin.git</connection>
+  	<developerConnection>scm:git:git@github.com/pmccabe-plugin.git</developerConnection>
+  </scm>
+  <url>http://github.com/pmccabe-plugin</url>
 </project>

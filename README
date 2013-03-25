@@ -1,0 +1,3 @@
+This Jenkins CI plugin generates a build report and trend graph for PMcCabe C and C++ cyclomatic complexity.
+
+See http://www.parisc-linux.org/~bame/pmccabe for more details about PMcCabe.

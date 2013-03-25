@@ -1,4 +1,4 @@
 <div>
   This plugin parses <a href="http://www.parisc-linux.org/~bame/pmccabe">PMcCabe</a> output file
-  to produce project and build reports.
+  to produce project build reports and trend graph.
 </div>
